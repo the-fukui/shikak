@@ -1,9 +1,17 @@
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import dynamic from 'next/dynamic'
+
+const Grid = dynamic(() => import('@web/components/Grid'), { ssr: false })
 
 type ContainerProps = InferGetStaticPropsType<typeof getStaticProps>
 type Props = ReturnType<typeof useContainer>
 
-const Presenter: React.VFC<Props> = ({}) => <div>aaa</div>
+const Presenter: React.VFC<Props> = ({}) => (
+  <div>
+    aaa
+    <Grid />
+  </div>
+)
 
 const useContainer = (props: ContainerProps) => {
   /** Logic here */
