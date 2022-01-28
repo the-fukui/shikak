@@ -1,0 +1,18 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "packageManager": "yarn@3.0.2",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "db": "docker compose up && docker compose down",
+    "generate": "prisma generate"
+  },
+  "devDependencies": {
+    "prisma": "^3.8.1",
+    "prisma-erd-generator": "^0.9.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.8.1"
+  }
+}
