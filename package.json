@@ -21,6 +21,7 @@
     "web:lint:style": "stylelint './packages/web/{styles,components}/**/*.{css,scss,sass}'",
     "web:lint:style:fix": "stylelint --fix './packages/web/{styles,components}/**/*.{css,scss,sass}'",
     "web:format": "prettier --write --ignore-path ./packages/web/.gitignore './packages/web/**/*.{js,jsx,ts,tsx,json}'",
+    "db:format": "prettier --write --ignore-path ./packages/db/.gitignore './packages/db/**/*.prisma'",
     "lint-staged": "lint-staged",
     "prepare": "husky install"
   },
@@ -31,6 +32,9 @@
     ],
     "*.{css,less,sass,scss}": [
       "stylelint --fix"
+    ],
+    "*.prisma": [
+      "prettier --ignore-path .prettierignore --write"
     ]
   },
   "devDependencies": {
@@ -42,6 +46,7 @@
     "husky": "^7.0.0",
     "lint-staged": "^12.3.2",
     "prettier": "^2.5.1",
+    "prettier-plugin-prisma": "^3.8.0",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0",
     "stylelint-order": "^5.0.0",

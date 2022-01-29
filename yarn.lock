@@ -230,6 +230,11 @@
     chalk "4.1.2"
     cross-spawn "7.0.3"
 
+"@prisma/prisma-fmt-wasm@3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f":
+  version "3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f"
+  resolved "https://registry.yarnpkg.com/@prisma/prisma-fmt-wasm/-/prisma-fmt-wasm-3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f.tgz#39f4110e18ccc2fbca9092596c39011f8a7a9ae4"
+  integrity sha512-r3eqcIkyLMLGXMAO5anxDUlDjkJQLJ9WfVyBzaPDQICNw+506MWx3J3jllGSPEqifch17NLNEckfb9ox5gn7tA==
+
 "@rushstack/eslint-patch@^1.0.8":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.0.tgz#7f698254aadf921e48dda8c0a6b304026b8a9323"
@@ -2989,6 +2994,13 @@ prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
+
+prettier-plugin-prisma@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-prisma/-/prettier-plugin-prisma-3.8.0.tgz#c7adb06cc495637546734249cc14030abbf3a0e5"
+  integrity sha512-CwLQnIXx+id+oXFX1/u4WJVmvZBxDmWN2NIT+Ow7q0G8ZlKcBNfu8vPjI+HnF0lY6rqnVtBruEl8r8ABr4a5tA==
+  dependencies:
+    "@prisma/prisma-fmt-wasm" "3.8.0-43.34df67547cf5598f5a6cd3eb45f14ee70c3fb86f"
 
 prettier@^2.5.1:
   version "2.5.1"

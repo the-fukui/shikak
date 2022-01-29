@@ -14,8 +14,35 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Account
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  email     String   @unique
+  name      String?
+  pages     Page[]
+}
+
+// Core
+model Block {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  page      Page     @relation(fields: [pageId], references: [id])
+  pageId    Int
+}
+
+model Page {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+  parent    Page     @relation("parentToChildren", fields: [parentId], references: [id])
+  parentId  Int      @default(0)
+  children  Page[]   @relation("parentToChildren")
+  slug      String   @db.VarChar(255)
+  title     String   @db.VarChar(255)
+  blocks    Block[]
 }

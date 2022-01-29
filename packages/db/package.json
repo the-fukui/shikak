@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "db": "docker compose up && docker compose down",
-    "generate": "prisma generate"
+    "generate": "prisma generate",
+    "generate:watch": "prisma generate --watch",
+    "format": "prisma format"
   },
   "devDependencies": {
     "prisma": "^3.8.1",
