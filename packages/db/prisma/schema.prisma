@@ -26,11 +26,34 @@ model User {
 
 // Core
 model Block {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  page      Page     @relation(fields: [pageId], references: [id])
-  pageId    Int
+  id         Int             @id @default(autoincrement())
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+  page       Page            @relation(fields: [pageId], references: [id])
+  pageId     Int
+  type       BlockType
+  properties BlockProperty[]
+  x          Int             @default(0) //パーセント
+  y          Int             @default(0) //パーセント
+  w          Int             @default(0) //パーセント
+  h          Int             @default(0) //パーセント
+}
+
+model BlockProperty {
+  id      Int    @id @default(autoincrement())
+  key     String
+  value   String
+  block   Block  @relation(fields: [blockId], references: [id])
+  blockId Int
+}
+
+enum BlockType {
+  text
+  richtext
+  form
+  image
+  embed
+  button
 }
 
 model Page {

@@ -26,8 +26,10 @@ const Presenter: React.VFC<Props> = ({ className = '', containerRef }) => (
       }}
     />
     <div className={`${className} ${style.container}`} ref={containerRef}>
-      {[...Array(1000)].map((_, i) => (
-        <div className={style.shikak} key={i} />
+      {[...Array(3)].map((_, i) => (
+        <div className={style.shikak} key={i}>
+          {i + 1}
+        </div>
       ))}
     </div>
   </>
