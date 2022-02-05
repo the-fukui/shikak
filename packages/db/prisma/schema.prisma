@@ -26,25 +26,26 @@ model User {
 
 // Core
 model Block {
-  id         Int             @id @default(autoincrement())
-  createdAt  DateTime        @default(now())
-  updatedAt  DateTime        @updatedAt
-  page       Page            @relation(fields: [pageId], references: [id])
+  id         Int              @id @default(autoincrement())
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  page       Page             @relation(fields: [pageId], references: [id])
   pageId     Int
   type       BlockType
-  properties BlockProperty[]
-  x          Int             @default(0) //パーセント
-  y          Int             @default(0) //パーセント
-  w          Int             @default(0) //パーセント
-  h          Int             @default(0) //パーセント
+  properties Json
+  appearance BlockAppearance?
 }
 
-model BlockProperty {
-  id      Int    @id @default(autoincrement())
-  key     String
-  value   String
-  block   Block  @relation(fields: [blockId], references: [id])
-  blockId Int
+model BlockAppearance {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  block     Block    @relation(fields: [blockId], references: [id])
+  blockId   Int      @unique
+  x         Int      @default(0) //パーセント
+  y         Int      @default(0) //パーセント
+  w         Int      @default(0) //パーセント
+  h         Int      @default(0) //パーセント
 }
 
 enum BlockType {
@@ -62,9 +63,9 @@ model Page {
   updatedAt DateTime @updatedAt
   author    User     @relation(fields: [authorId], references: [id])
   authorId  Int
-  parent    Page     @relation("parentToChildren", fields: [parentId], references: [id])
-  parentId  Int      @default(0)
-  children  Page[]   @relation("parentToChildren")
+  parent    Page?    @relation("PagePages", fields: [parentId], references: [id])
+  parentId  Int?
+  children  Page[]   @relation("PagePages")
   slug      String   @db.VarChar(255)
   title     String   @db.VarChar(255)
   blocks    Block[]
