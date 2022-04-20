@@ -8,7 +8,6 @@ type Props = ReturnType<typeof useContainer>
 
 const Presenter: React.VFC<Props> = ({}) => (
   <div>
-    aaa
     <Grid />
   </div>
 )
